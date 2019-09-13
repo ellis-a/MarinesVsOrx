@@ -810,12 +810,10 @@ MonoBehaviour:
   - {fileID: 114076073180157640}
   - {fileID: 20152247488723198}
   - {fileID: 20390706717134340}
-  - {fileID: 114428568592066450}
-  - {fileID: 114888395650744970}
   _remoteLayerName: RemotePlayer
   _dontDrawLayerName: DontDraw
   _playerGraphics: {fileID: 1304487252210134}
-  _playerUiPrefab: {fileID: 1105359914319304, guid: 473e53b780c7b734a8658f9c8dd054aa,
+  _playerUiPrefab: {fileID: 1408015432474146, guid: 2a821c416a1f0924da3108797d3aeb43,
     type: 2}
 --- !u!114 &114836382684953272
 MonoBehaviour:
