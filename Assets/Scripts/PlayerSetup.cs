@@ -7,6 +7,8 @@ public class PlayerSetup : NetworkBehaviour
     [SerializeField]
     private Behaviour[] _disabledComponents;
     [SerializeField]
+    private string _localLayerName = "LocalPlayer";
+    [SerializeField]
     private string _remoteLayerName = "RemotePlayer";
     [SerializeField]
     private string _dontDrawLayerName = "DontDraw";
@@ -65,7 +67,19 @@ public class PlayerSetup : NetworkBehaviour
 
     void AssignRemoteLayer()
     {
-        gameObject.layer = LayerMask.NameToLayer(_remoteLayerName);
+        RecursivelyAssignRemoteLayer(gameObject);
+    }
+
+    void RecursivelyAssignRemoteLayer(GameObject gObj)
+    {
+        if (gObj.layer == LayerMask.NameToLayer(_localLayerName))
+        {
+            gObj.layer = LayerMask.NameToLayer(_remoteLayerName);
+        }
+        foreach(Transform child in gObj.transform)
+        {
+            RecursivelyAssignRemoteLayer(child.gameObject);
+        }
     }
 
     void OnDisable()
