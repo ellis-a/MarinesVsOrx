@@ -11,8 +11,10 @@ public class Helpers
             return;
         }
 
-        if(!oldLayer.HasValue || gameObject.layer == oldLayer.Value)
-        gameObject.layer = newLayer;
+        if (!oldLayer.HasValue || gameObject.layer == oldLayer.Value)
+        {
+            gameObject.layer = newLayer;
+        }
         foreach (Transform child in gameObject.transform)
         {
             SetLayerRecursively(child.gameObject, newLayer);
