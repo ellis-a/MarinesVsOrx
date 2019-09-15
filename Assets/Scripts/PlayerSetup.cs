@@ -67,19 +67,7 @@ public class PlayerSetup : NetworkBehaviour
 
     void AssignRemoteLayer()
     {
-        RecursivelyAssignRemoteLayer(gameObject);
-    }
-
-    void RecursivelyAssignRemoteLayer(GameObject gObj)
-    {
-        if (gObj.layer == LayerMask.NameToLayer(_localLayerName))
-        {
-            gObj.layer = LayerMask.NameToLayer(_remoteLayerName);
-        }
-        foreach(Transform child in gObj.transform)
-        {
-            RecursivelyAssignRemoteLayer(child.gameObject);
-        }
+        Helpers.SetLayerRecursively(gameObject, LayerMask.NameToLayer(_remoteLayerName), LayerMask.NameToLayer(_localLayerName));
     }
 
     void OnDisable()
