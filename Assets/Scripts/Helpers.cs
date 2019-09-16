@@ -17,7 +17,7 @@ public class Helpers
         }
         foreach (Transform child in gameObject.transform)
         {
-            SetLayerRecursively(child.gameObject, newLayer);
+            SetLayerRecursively(child.gameObject, newLayer, oldLayer);
         }
     }
 }
