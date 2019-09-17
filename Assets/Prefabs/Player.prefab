@@ -175,9 +175,8 @@ GameObject:
   - component: {fileID: 23393909842842910}
   - component: {fileID: 54271596036064732}
   - component: {fileID: 114973716092786110}
+  - component: {fileID: 114580304313346912}
   - component: {fileID: 114656630290162890}
-  - component: {fileID: 114836382684953272}
-  - component: {fileID: 114076073180157640}
   - component: {fileID: 114428568592066450}
   - component: {fileID: 114888395650744970}
   - component: {fileID: 114325670609189050}
@@ -693,20 +692,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1662926774118258}
   m_Enabled: 1
---- !u!114 &114076073180157640
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1912327751333272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02881b34deb609a4183ecf79f5888df9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5
-  _lookSensitivity: 3
-  _jumpForce: 200
 --- !u!114 &114325670609189050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -794,6 +779,65 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 10
   m_InterpolateMovement: 1
+--- !u!114 &114580304313346912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1912327751333272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c9795a96c094f4cbde4d65546aa9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 20152247488723198}
+  movementSettings:
+    ForwardSpeed: 8
+    BackwardSpeed: 8
+    StrafeSpeed: 8
+    RunMultiplier: 1
+    RunKey: 304
+    JumpForce: 7.5
+    SlopeCurveModifier:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: -90
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 90
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    CurrentTargetSpeed: 8
+  mouseLook:
+    XSensitivity: 2
+    YSensitivity: 2
+    clampVerticalRotation: 1
+    MinimumX: -90
+    MaximumX: 90
+    smooth: 0
+    smoothTime: 5
+    lockCursor: 1
+  advancedSettings:
+    groundCheckDistance: 0.01
+    stickToGroundHelperDistance: 0.5
+    slowDownRate: 20
+    airControl: 0
+    shellOffset: 0
 --- !u!114 &114656630290162890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -806,28 +850,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _disabledComponents:
-  - {fileID: 114836382684953272}
-  - {fileID: 114076073180157640}
+  - {fileID: 114580304313346912}
   - {fileID: 20152247488723198}
-  - {fileID: 20390706717134340}
   _remoteLayerName: RemotePlayer
   _dontDrawLayerName: DontDraw
   _playerGraphics: {fileID: 1304487252210134}
   _playerUiPrefab: {fileID: 1408015432474146, guid: 2a821c416a1f0924da3108797d3aeb43,
     type: 2}
---- !u!114 &114836382684953272
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1912327751333272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b4ed0efa7f34e84e9e6764ea8799eb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cam: {fileID: 20152247488723198}
-  _cameraRotationLimit: 90
 --- !u!114 &114888395650744970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -860,7 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 100
   _disableOnDeath:
-  - {fileID: 114076073180157640}
+  - {fileID: 114580304313346912}
   - {fileID: 114428568592066450}
 --- !u!124 &124738528290194954
 Behaviour:
