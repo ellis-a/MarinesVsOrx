@@ -31,14 +31,14 @@ public class PlayerShoot : NetworkBehaviour
 
         if(_currentWeapon.FireRate <= 0f)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("MainFire"))
             {
                 Shoot();
             }
         }
         else
         {
-            if (Input.GetButton("Fire1") && Time.time - _lastFired > 1 / _currentWeapon.FireRate)
+            if (Input.GetButton("MainFire") && Time.time - _lastFired > 1 / _currentWeapon.FireRate)
             {
                 _lastFired = Time.time;
                 Shoot();

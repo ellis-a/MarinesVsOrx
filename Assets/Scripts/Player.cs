@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Enums;
+using Assets.Scripts.Races;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -15,6 +17,10 @@ public class Player : NetworkBehaviour
 
     [SerializeField]
     private int MaxHealth = 100;
+
+    [SerializeField]
+    private PlayerRace _raceEnum;
+    private IRace _raceScript;
 
     [SyncVar]
     private int _currentHealth;
@@ -33,6 +39,21 @@ public class Player : NetworkBehaviour
         }
 
         CmdBroadcastNewPlayerSetup();
+
+        switch (_raceEnum)
+        {
+            case PlayerRace.Knight:
+                _raceScript = new Knight();
+                break;
+            case PlayerRace.Orc:
+                _raceScript = new Orc();
+                break;
+            case PlayerRace.Elf:
+                _raceScript = new Elf();
+                break;
+            default:
+                break;
+        }
     }
 
     private void SetSceneCamera()
